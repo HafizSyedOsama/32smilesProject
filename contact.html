@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>32-Smile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Roboto+Slab&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/contact css.css">
+    <link rel="icon" type="image/png" href="assets/images/images_home/favicon.png">
+</head>
+
+<body style="background-image: url(/assets/images/images_contact/my\ pic.jpg)">
+
+    <div class="map">
+
+    </div>
+
+
+    <div class="nav">
+
+        <div class="nav-left">
+            <span>
+                <div class=" logo"><img src="../assets/images/images_home/foot teeth logo.png" alt=""></div>
+                <div class="name">32-SMILE</div>
+            </span>
+        </div>
+
+        <div class="nav-right">
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="html/contact.html">CONTACT</a></li>
+                <li class="dropdown">MORE
+                    <ul class="submenu">
+                        <li><a href="html/research.html">Research</a></li>
+                        <li><a href="html/Professional education.html">Professional Education</a></li>
+                        <li><a href="html/patient education.html">Patient Education</a>
+                        </li>
+                        <li><a href="html/product.html">Products</a></li>
+                        <li><a href="html/contact.html">Contact Us</a></li>
+                    </ul>
+                <li class="last-li">SITE MAP <img style="filter: invert(1);" src="../assets/svgs/location.svg" alt="">
+                </li>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+
+
+
+    <div class="container">
+        <header>
+            <h1>Contact Us</h1>
+            <p style="font-size: larger;">We’re here to help you achieve a healthy and confident smile! Whether you have
+                questions about our services, want to book an appointment, or need assistance, feel free to reach out.
+            </p>
+        </header>
+        <div class="content">
+            <div class="content-form">
+                <section>
+                    <i class="fa fa-map-marker fa-2x" aria-hidden="true"></i>
+                    <h2>address</h2>
+                    <p>
+                        123 Main street<br>
+                        New Karachi<br>
+                        Karachi
+                    </p>
+                </section>
+
+                <section>
+                    <i class="fa fa-phone fa-2x" aria-hidden="true"></i>
+                    <h2>Phone</h2>
+                    <p>+92 312 3456789</p>
+                </section>
+
+                <section>
+                    <i class="fa fa-envelope fa-2x" aria-hidden="true"></i>
+                    <h2>E-mail</h2>
+                    <p>32-smile@gmail.com</p>
+                </section>
+            </div>
+        </div>
+
+        <form>
+            <div class="form">
+                <div class="right">
+                    <div class="contact-form">
+                        <input type="text" required>
+                        <span>Full Name</span>
+                    </div>
+
+                    <div class="contact-form">
+                        <input type="E-mail" required>
+                        <span>E-mail Id</span>
+                    </div>
+                    <div class="contact-form">
+                        <textarea name="text">
+
+                  </textarea>
+                        <span> Type your Message....</span>
+                    </div>
+
+                    <div class="contact-form">
+                        <input type="submit" name="submit">
+                    </div>
+                </div>
+            </div>
+    </div>
+    </form>
+    <div class="media">
+        <li><i class="fa fa-facebook-square fa-2x" aria-hidden="true"></i></li>
+        <li><i class="fa fa-instagram fa-2x" aria-hidden="true"></i></li>
+        <li><i class="fa fa-whatsapp fa-2x" aria-hidden="true"></i></li>
+        <li><i class="fa fa-twitter-square fa-2x" aria-hidden="true"></i></li>
+    </div>
+    <div class="empty">
+
+    </div>
+    </div>
+
+    <script>
+
+
+        let name = document.querySelector(".nav-left").firstElementChild
+        console.log(name)
+        name.addEventListener("click", () => {
+            window.location.href = "../index.html"
+        })
+
+
+
+        let map = document.querySelector(".map")
+        let last_li = document.querySelector(".last-li")
+        let defaultLocation = { lat: 24.981949764492548, lng: 67.06525615332131 };
+        const mapUrl = `https://maps.google.com/maps?width=100%25&height=600&hl=en&q=${defaultLocation.lat},${defaultLocation.lng}&t=&z=14&ie=UTF8&iwloc=B&output=embed`;
+
+
+        last_li.addEventListener("click", () => {
+
+            map.innerHTML = `
+    <div class="map-cross"><img src="assets/svgs/cross.svg" alt=""></div>
+    <iframe id="mapFrame" style="border:0;"></iframe>
+    `
+            map.classList.add("map-active")
+
+            let mapFrame = document.getElementById("mapFrame")
+            mapFrame.src = mapUrl;
+            map.classList.add("map-active")
+
+            let map_cross = document.querySelector(".map-cross")
+            map_cross.addEventListener("click", () => {
+                map.classList.remove("map-active")
+            })
+
+            document.addEventListener("click", (e) => {
+
+                if (!mapFrame.contains(e.target) && !e.target.classList.contains("last-li")) {
+                    map.classList.remove("map-active")
+                }
+
+            })
+
+        })
+
+
+    </script>
+</body>
+
+</html>
